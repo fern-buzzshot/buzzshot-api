@@ -3,9 +3,10 @@ info:
   title: ''
   version: ''
 paths:
-  /api/v2/accounts/:
+  /api/v2/accounts:
     get:
       operationId: listAccounts
+      x-request-name: ListAccountsRequest
       description: ''
       parameters:
       - name: page
@@ -19,29 +20,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Room'
+                $ref: '#/components/schemas/Account'
           description: ''
-      tags:
-      - api
-  /api/v2/accounts/{id}/:
+  /api/v2/accounts/{id}:
     get:
       operationId: retrieveAccount
       description: ''
@@ -59,11 +40,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Room'
           description: ''
-      tags:
-      - api
-  /api/v2/games/:
+  /api/v2/games:
     get:
       operationId: listGames
+      x-request-name: ListGamesRequest
       description: ''
       parameters:
       - name: page
@@ -101,31 +81,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Game'
+                $ref: '#/components/schemas/GamesResponse'
           description: ''
-      tags:
-      - api
-  /api/v2/games/{id}/:
+  /api/v2/games/{id}:
     get:
       operationId: retrieveGame
+      x-request-name: RetrieveGameRequest
       description: ''
       parameters:
       - name: id
@@ -165,11 +126,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Game'
           description: ''
-      tags:
-      - api
-  /api/v2/groups/:
+  /api/v2/groups:
     get:
       operationId: listGroups
+      x-request-name: ListGroupsRequest
       description: ''
       parameters:
       - name: page
@@ -195,31 +155,12 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/GroupsResponse'
           description: ''
-      tags:
-      - api
-  /api/v2/groups/{id}/:
+  /api/v2/groups/{id}:
     get:
       operationId: retrieveGroup
+      x-request-name: RetrieveGroupRequest
       description: ''
       parameters:
       - name: id
@@ -247,11 +188,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Group'
           description: ''
-      tags:
-      - api
-  /api/v2/players/:
+  /api/v2/players:
     get:
       operationId: listPlayers
+      x-request-name: ListPlayersRequest
       description: ''
       parameters:
       - name: page
@@ -265,29 +205,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Player'
+                $ref: '#/components/schemas/PlayersResponse'
           description: ''
-      tags:
-      - api
-  /api/v2/players/{id}/:
+  /api/v2/players/{id}:
     get:
       operationId: retrievePlayer
       description: ''
@@ -305,11 +225,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Player'
           description: ''
-      tags:
-      - api
-  /api/v2/rooms/:
+  /api/v2/rooms:
     get:
       operationId: listLocations
+      x-request-name: ListLocationsRequest
       description: ''
       parameters:
       - name: page
@@ -323,29 +242,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Room'
+                $ref: '#/components/schemas/LocationsResponse'
           description: ''
-      tags:
-      - api
-  /api/v2/rooms/{id}/:
+  /api/v2/rooms/{id}:
     get:
       operationId: retrieveLocation
       description: ''
@@ -363,11 +262,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Room'
           description: ''
-      tags:
-      - api
-  /api/v2/photos/:
+  /api/v2/photos:
     get:
       operationId: listPhotos
+      x-request-name: ListPhotosRequest
       description: ''
       parameters:
       - name: page
@@ -381,29 +279,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Photo'
+                $ref: '#/components/schemas/PhotosResponse'
           description: ''
-      tags:
-      - api
-  /api/v2/photos/{photo_id}/:
+  /api/v2/photos/{photo_id}:
     get:
       operationId: retrievePhoto
       description: ''
@@ -421,10 +299,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/Photo'
           description: ''
-      tags:
-      - api
 components:
   schemas:
+    Account: 
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
     Room:
       type: object
       properties:
@@ -473,72 +369,178 @@ components:
         photos:
           type: array
           items:
-            type: object
-            properties:
-              added_at:
-                type: string
-                format: date-time
-                readOnly: true
-              photo:
-                type: string
-              processed_image:
-                type: string
-                format: binary
-                readOnly: true
-              ready:
-                type: string
-                readOnly: true
-            required:
-            - photo
+            $ref: '#/components/schemas/PhotosItem'
           readOnly: true
         extra_fields:
           type: array
           items:
-            type: object
-            properties:
-              key:
-                type: string
-              label:
-                type: string
-                readOnly: true
-              value:
-                type: object
-                nullable: true
-              present:
-                type: boolean
-            required:
-            - key
-            - value
-            - present
+            $ref: '#/components/schemas/ExtraFieldsItem'
         complete:
-          type: object
-          properties:
-            completed_at:
-              type: string
-              format: date-time
-            did_win:
-              type: boolean
-              nullable: true
-            hints:
-              type: integer
-              nullable: true
-            score:
-              type: integer
-              nullable: true
-            completion_time:
-              type: integer
-              nullable: true
-          required:
-          - completed_at
-          - did_win
-          - hints
-          - score
-          - completion_time
+          $ref: '#/components/schemas/GameComplete'
       required:
       - date
       - time
       - extra_fields
       - complete
+    PhotosItem: 
+      type: object
+      properties:
+        added_at:
+          type: string
+          format: date-time
+          readOnly: true
+        photo:
+          type: string
+        processed_image:
+          type: string
+          format: binary
+          readOnly: true
+        ready:
+          type: string
+          readOnly: true
+      required:
+      - photo
+    ExtraFieldsItem:
+      type: object
+      properties:
+        key:
+          type: string
+        label:
+          type: string
+          readOnly: true
+        value:
+          type: object
+          nullable: true
+        present:
+          type: boolean
+      required:
+      - key
+      - value
+      - present
+    PlayersResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+    PhotosResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Photo'
+    LocationsResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+    GroupsResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    GamesResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Game'
+    GameComplete: 
+      type: object
+      properties:
+        completed_at:
+          type: string
+          format: date-time
+        did_win:
+          type: boolean
+          nullable: true
+        hints:
+          type: integer
+          nullable: true
+        score:
+          type: integer
+          nullable: true
+        completion_time:
+          type: integer
+          nullable: true
+      required:
+      - completed_at
+      - did_win
+      - hints
+      - score
+      - completion_time
     Group:
       type: object
       properties:
@@ -570,170 +572,24 @@ components:
         games:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                type: integer
-                readOnly: true
-              added_at:
-                type: string
-                format: date-time
-                readOnly: true
-              updated_at:
-                type: string
-                format: date-time
-                readOnly: true
-              name:
-                type: string
-                maxLength: 255
-              date:
-                type: string
-                format: date
-              time:
-                type: string
-              start_at:
-                type: string
-                format: date-time
-                readOnly: true
-              room:
-                type: string
-                readOnly: true
-              extra_fields:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                    label:
-                      type: string
-                      readOnly: true
-                    value:
-                      type: object
-                      nullable: true
-                    present:
-                      type: boolean
-                  required:
-                  - key
-                  - value
-                  - present
-              complete:
-                type: object
-                properties:
-                  completed_at:
-                    type: string
-                    format: date-time
-                  did_win:
-                    type: boolean
-                    nullable: true
-                  hints:
-                    type: integer
-                    nullable: true
-                  score:
-                    type: integer
-                    nullable: true
-                  completion_time:
-                    type: integer
-                    nullable: true
-                required:
-                - completed_at
-                - did_win
-                - hints
-                - score
-                - completion_time
-            required:
-            - date
-            - time
-            - extra_fields
-            - complete
+            $ref: '#/components/schemas/Games'
           readOnly: true
         players:
           type: array
           items:
-            type: object
-            properties:
-              added_at:
-                type: string
-                format: date-time
-                readOnly: true
-              updated_at:
-                type: string
-                format: date-time
-                readOnly: true
-              player:
-                type: string
-                readOnly: true
-              first_name:
-                type: string
-                maxLength: 255
-              last_name:
-                type: string
-                maxLength: 255
-              email:
-                type: string
-                format: email
-              phone:
-                type: string
-              extra_fields:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                    label:
-                      type: string
-                      readOnly: true
-                    value:
-                      type: object
-                      nullable: true
-                    present:
-                      type: boolean
-                  required:
-                  - key
-                  - value
-                  - present
-              signature:
-                type: string
-                readOnly: true
-            required:
-            - email
-            - phone
-            - extra_fields
+            $ref: '#/components/schemas/Player'
         photos:
           type: array
           items:
-            type: object
-            properties:
-              added_at:
-                type: string
-                format: date-time
-                readOnly: true
-              game:
-                type: string
-                readOnly: true
-              photo:
-                type: string
-              processed_image:
-                type: string
-                format: binary
-                readOnly: true
-              ready:
-                type: string
-                readOnly: true
-            required:
-            - photo
+            $ref: '#/components/schemas/PhotosItem'
           readOnly: true
       required:
       - date
       - time
       - players
-    Player:
+    Player: 
       type: object
       properties:
-        id:
-          type: integer
-          readOnly: true
         added_at:
           type: string
           format: date-time
@@ -741,6 +597,9 @@ components:
         updated_at:
           type: string
           format: date-time
+          readOnly: true
+        player:
+          type: string
           readOnly: true
         first_name:
           type: string
@@ -756,29 +615,54 @@ components:
         extra_fields:
           type: array
           items:
-            type: object
-            properties:
-              key:
-                type: string
-              label:
-                type: string
-                readOnly: true
-              value:
-                type: object
-                nullable: true
-              present:
-                type: boolean
-            required:
-            - key
-            - value
-            - present
-        marketing_email_allowed:
-          type: boolean
+            $ref: '#/components/schemas/ExtraFieldsItem'
+        signature:
+          type: string
           readOnly: true
       required:
       - email
       - phone
       - extra_fields
+    Games: 
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        added_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        date:
+          type: string
+          format: date
+        time:
+          type: string
+        start_at:
+          type: string
+          format: date-time
+          readOnly: true
+        room:
+          type: string
+          readOnly: true
+        extra_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtraFieldsItem'
+        complete:
+          $ref: '#/components/schemas/GameComplete'
+      required:
+      - date
+      - time
+      - extra_fields
+      - complete
     Photo:
       type: object
       properties:
@@ -795,29 +679,31 @@ components:
         processed:
           type: array
           items:
-            type: object
-            properties:
-              added_at:
-                type: string
-                format: date-time
-                readOnly: true
-              game:
-                type: string
-                readOnly: true
-              group:
-                type: string
-                readOnly: true
-              photo:
-                type: string
-              processed_image:
-                type: string
-                format: binary
-                readOnly: true
-              ready:
-                type: string
-                readOnly: true
-            required:
-            - photo
+            $ref: '#/components/schemas/ProcessedProperty'
       required:
       - original_image
       - processed
+    ProcessedProperty:
+      type: object
+      properties:
+        added_at:
+          type: string
+          format: date-time
+          readOnly: true
+        game:
+          type: string
+          readOnly: true
+        group:
+          type: string
+          readOnly: true
+        photo:
+          type: string
+        processed_image:
+          type: string
+          format: binary
+          readOnly: true
+        ready:
+          type: string
+          readOnly: true
+      required:
+      - photo 
