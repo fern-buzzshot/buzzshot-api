@@ -679,11 +679,11 @@ components:
         processed:
           type: array
           items:
-            $ref: '#/components/schemas/ProcessedProperty'
+            $ref: '#/components/schemas/ProcessedPhotoDetails'
       required:
       - original_image
       - processed
-    ProcessedProperty:
+    ProcessedPhotoDetails:
       type: object
       properties:
         added_at:
