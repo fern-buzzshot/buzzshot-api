@@ -9,4 +9,12 @@ groups:
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-buzzshot/buzzshot-node
+      - name: fernapi/fern-python-sdk
+        version: 0.1.4
+        output:
+          location: pypi
+          package-name: buzzshotdev
+          token: ${PYPI_TOKEN}
+        github:
+          repository: fern-buzzshot/buzzshot-python
           
